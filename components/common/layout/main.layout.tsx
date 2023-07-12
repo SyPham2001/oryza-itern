@@ -1,6 +1,8 @@
 import { LayoutProps } from '@/models/common';
 import { Stack } from '@mui/material';
 import SideNav from '../nav/side-nav';
+import { Box, Grid } from '@mui/material';
+import { deepOrange, deepPurple } from '@mui/material/colors';
 
 export interface MainLayoutProps {}
 
@@ -16,7 +18,8 @@ export function MainLayout({ children }: LayoutProps) {
                 }}
                 direction="row"
             >
-                <SideNav />
+                <SideNav/>
+
                 <Stack
                     sx={{
                         width: 'calc(100% - 80px)',
