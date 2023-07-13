@@ -18,22 +18,21 @@ export function MainLayout({ children }: LayoutProps) {
                 }}
                 direction="row"
             >
-                <SideNav/>
+                <SideNav />
 
-                <Stack
+                <Box
                     sx={{
-                        width: 'calc(100% - 80px)',
+                        flex: 1,
                         backgroundColor: '#fff',
                         maxWidth: '100%',
                         height: '100vh',
                         overflow: 'hidden',
-                        borderRadius: '20px 0px 0px 20px',
+                        // borderRadius: '20px 0px 0px 20px',
                         zIndex: 1,
-                        p: '15px',
                     }}
                 >
                     {children}
-                </Stack>
+                </Box>
             </Stack>
         </Stack>
     );
