@@ -1,4 +1,4 @@
-import { Box, Divider, Stack, SvgIcon, Typography, colors } from '@mui/material';
+import { Box, Button, Divider, Stack, TextField, Typography, colors } from '@mui/material';
 import Image from 'next/image';
 import * as React from 'react';
 import Table from '@mui/material/Table';
@@ -8,7 +8,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import styled from '@emotion/styled';
+import Modal, { ModalProps } from '@mui/material/Modal';
+import Autocomplete from '@mui/material/Autocomplete';
+import { styled } from '@mui/system';
 export default function Description() {
     const tableTextDefault = {
         color: '#55595D',
@@ -22,12 +24,6 @@ export default function Description() {
         createData('Lê Thành Hiếu', '0967738406', ''),
         createData('Lê Thành Hiếu', '0967738406', 'noupdated'),
     ];
-    const styled = {
-        color: 'red',
-    };
-    const styled2 = {
-        color: 'green',
-    };
 
     return (
         <div>
@@ -40,8 +36,15 @@ export default function Description() {
 
                         <Divider style={{ flexGrow: 1 }} />
 
-                        <Box ml={2} color="primary">
-                            <Image src="/images/penIcon.svg" alt="penIcon" width={24} height={24} />
+                        <Box ml={2} color="primary" sx={{ cursor: 'pointer' }}>
+                            <Button>
+                                <Image
+                                    src="/images/penIcon.svg"
+                                    alt="penIcon"
+                                    width={24}
+                                    height={24}
+                                />
+                            </Button>
                         </Box>
                     </Stack>
                     <Box p={2}>
@@ -167,15 +170,20 @@ export default function Description() {
                                                 <TableCell
                                                     component="th"
                                                     scope="row"
-                                                    sx={{ color: '#55595D' , bgcolor : '#D9D9D933'}}
-
+                                                    sx={{ color: '#55595D', bgcolor: '#D9D9D933' }}
                                                 >
                                                     {row.name}
                                                 </TableCell>
-                                                <TableCell align="left" sx={{ color: '#55595D', bgcolor : '#D9D9D933' }}>
+                                                <TableCell
+                                                    align="left"
+                                                    sx={{ color: '#55595D', bgcolor: '#D9D9D933' }}
+                                                >
                                                     {row.phone}
                                                 </TableCell>
-                                                <TableCell align="right" sx={{ color: '#55595D', bgcolor : '#D9D9D933' }}>
+                                                <TableCell
+                                                    align="right"
+                                                    sx={{ color: '#55595D', bgcolor: '#D9D9D933' }}
+                                                >
                                                     {row.updated === 'noupdated' ? (
                                                         <Typography color="#E94F4F" fontSize={14}>
                                                             Chưa cập nhật
